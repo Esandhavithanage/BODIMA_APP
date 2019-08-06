@@ -15,7 +15,9 @@
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
     <string name="title_activity_traveller_nav">Traveller_nav</string>
+    <string name="btnrequest">Send request</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="resturent_name">Kandy cabana</string>
 </resources>
