@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -51,6 +53,8 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
     private OnFragmentInteractionListener mListener;
     private FusedLocationProviderClient fusedLocationClient;
 
+    private String[] beds = { "Bed type","single bed","double bed","family" };
+
     public Traveller_map() {
     }
 
@@ -67,7 +71,8 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        fusedLocationClient = (FusedLocationProviderClient) LocationServices.getFusedLocationProviderClient(getActivity());
+
+
 
 
 
@@ -83,6 +88,12 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
         View view = inflater.inflate(R.layout.fragment_traveller_map, container, false);
         SupportMapFragment fragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         fragment.getMapAsync(this);
+
+        Spinner spinner = (Spinner) view.findViewById(R.id.dedType);
+        ArrayAdapter<String> adaptr = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item,beds);
+        adaptr.setDropDownViewResource(android.R.layout.simple_dropdown_item_1line);
+        spinner.setAdapter(adaptr);
+
         return view;
     }
 
