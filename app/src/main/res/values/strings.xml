@@ -33,4 +33,10 @@
     <string name="Edit">Edit</string>
     <string name="update">Update</string>
     <string name="price">Price</string>
+
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+
+    <string name="TravellerReg">Traveller Registration</string>
+    <string name="cabanaReg">Cabana Registration</string>
 </resources>
