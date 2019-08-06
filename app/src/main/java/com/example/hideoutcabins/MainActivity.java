@@ -18,7 +18,7 @@ Button s;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent usermenu = new Intent(MainActivity.this, Traveller_nav.class);
+                Intent usermenu = new Intent(MainActivity.this, Login.class);
                 startActivity(usermenu);
             }
         },2000);

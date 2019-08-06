@@ -10,72 +10,97 @@
         android:id="@+id/txtUname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/Email"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/edituname"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.404"
-        tools:layout_editor_absoluteX="25dp" />
+        app:layout_constraintVertical_bias="0.404" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/edituname"
         android:layout_width="253dp"
         android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtUname"
-        tools:layout_editor_absoluteX="142dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/txtPassowrd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
         android:layout_marginBottom="8dp"
         android:text="@string/password"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editpassowrd"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.57"
-        tools:layout_editor_absoluteX="25dp" />
+        app:layout_constraintVertical_bias="0.579" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editpassowrd"
         android:layout_width="253dp"
         android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:inputType="textPassword"
         android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtPassowrd"
-        tools:layout_editor_absoluteX="142dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnlogin"
         android:layout_width="251dp"
         android:layout_height="51dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:onClick="loginOnClick"
         android:text="@string/login"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.944"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.701"
-        tools:layout_editor_absoluteX="144dp" />
+        app:layout_constraintVertical_bias="0.708" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btnregister"
         android:layout_width="171dp"
         android:layout_height="42dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:onClick="registerOnClick"
         android:text="@string/register"
         android:textSize="18sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.964"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:layout_editor_absoluteX="237dp" />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
