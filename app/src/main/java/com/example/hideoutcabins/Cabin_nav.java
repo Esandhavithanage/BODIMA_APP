@@ -76,7 +76,7 @@ public class Cabin_nav extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cabin_home) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_cabin_checkout) {
 
         } else if (id == R.id.nav_cabin_history) {
