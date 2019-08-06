@@ -1,5 +1,6 @@
 package com.example.hideoutcabins;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.view.GravityCompat;
@@ -60,6 +61,8 @@ public class Cabin_nav extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this,Login.class);
+            startActivity(intent);
             return true;
         }
 

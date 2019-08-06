@@ -64,7 +64,7 @@ public class Traveller_nav extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this,Login.class);
             startActivity(intent);
             return true;
         }
