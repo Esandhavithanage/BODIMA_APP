@@ -3,8 +3,8 @@
     <string name="title_activity_cabin_nav">Cabin_nav</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_Traveler_header_title">Esandha Vithanage</string>
+    <string name="nav_Caban_header_title">Kandy cabana</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Logout</string>
 
@@ -19,9 +19,24 @@
     <string name="menu_prfile">Profile</string>
     <string name="title_activity_traveller_nav">Traveller</string>
     <string name="btnrequest">Send request</string>
-    <string name="TP">Telephone number</string>
-    <string name="Addres">Address</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="resturent_name">Kandy cabana</string>
+
+    <string name="firstName">First Name</string>
+    <string name="lastname">Last name</string>
+    <string name="Email">Email</string>
+    <string name="Address">Address</string>
+    <string name="password">Password</string>
+    <string name="TP">Telephone number</string>
+    <string name="Edit">Edit</string>
+    <string name="update">Update</string>
+    <string name="price">Price</string>
+
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+
+    <string name="TravellerReg">Traveller Registration</string>
+    <string name="cabanaReg">Cabana Registration</string>
 </resources>
