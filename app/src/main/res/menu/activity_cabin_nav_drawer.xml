@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_cabin_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_cabin_checkout"
+            android:icon="@drawable/ic_menu_checkout"
+            android:title="@string/cabinmenu_checkOut" />
+        <item
+            android:id="@+id/nav_cabin_history"
+            android:icon="@drawable/ic_menu_history"
+            android:title="@string/menu_History" />
+        <item
+            android:id="@+id/nav_cabin_rating"
+            android:icon="@drawable/ic_menu_rating"
+            android:title="@string/cabinmenu_rating" />
+    </group>
+
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/nav_cabin_profile"
+                android:icon="@drawable/ic_menu_profile"
+                android:title="@string/menu_prfile" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_traveller_home"
+            android:icon="@drawable/ic_menu_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_traveller_checkout"
+            android:icon="@drawable/ic_menu_chat"
+            android:title="@string/travellmenu_request" />
+        <item
+            android:id="@+id/nav_traveller_history"
+            android:icon="@drawable/ic_menu_history"
+            android:title="@string/menu_History" />
+    </group>
+
+    <item android:title="Others">
+        <menu>
+            <item
+                android:id="@+id/nav_traveller_profile"
+                android:icon="@drawable/ic_menu_profile"
+                android:title="@string/menu_prfile" />
+        </menu>
+    </item>
+
+</menu>

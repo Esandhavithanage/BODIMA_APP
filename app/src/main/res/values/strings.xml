@@ -1,7 +1,21 @@
 <resources>
-    <string name="app_name">HideoutCabins</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_cabin_nav">Cabin_nav</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Logout</string>
+    <string name="menu_home">Home</string>
+    <string name="travellmenu_request">Request</string>
+    <string name="cabinmenu_rating">Rating</string>
+    <string name="cabinmenu_checkOut">Rating</string>
+    <string name="menu_History">History</string>
+    <string name="menu_prfile">Profile</string>
+    <string name="title_activity_traveller_nav">Traveller</string>
+    <string name="btnrequest">Send request</string>
+    <string name="TP">Telephone number</string>
+    <string name="Addres">Address</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="reg">Register</string>
     <string name="reject">Reject</string>
@@ -25,7 +39,8 @@
     <string name="caName">Cabanas Name</string>
     <string name="btnCancle">Cancle Request</string>
     <string name="btnnav"> Navigation </string>
+    <string name="app_name">HideoutCabins</string>
 
 
-
+    <string name="resturent_name">Kandy cabana</string>
 </resources>
