@@ -1,3 +1,31 @@
 <resources>
     <string name="app_name">HideoutCabins</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="reg">Register</string>
+    <string name="reject">Reject</string>
+    <string name="confirm">Confirm</string>
+    <string name="fromDate">From Date</string>
+    <string name="toDate">To Date</string>
+    <string name="reject1">Reject</string>
+    <string name="History">History</string>
+    <string name="traveler">Traveler Details</string>
+    <string name="TVname">Traveler Name</string>
+    <string name="TVtel">Traveler TeleNumber</string>
+    <string name="TVNIC">Traveler NIC</string>
+    <string name="rate">Rating</string>
+    <string name="yourRate">Your Rating </string>
+    <string name="currnt">Current Customer</string>
+    <string name="Customer1">Customer 1</string>
+    <string name="Customer2">Customer 2</string>
+    <string name="Customer3">Customer 3</string>
+    <string name="check">Check Out</string>
+    <string name="req">Request</string>
+    <string name="caName">Cabanas Name</string>
+    <string name="btnCancle">Cancle Request</string>
+    <string name="btnnav"> Navigation </string>
+
+
+
 </resources>
