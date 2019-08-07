@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgcolor"
+    android:orientation="vertical"
+    tools:context=".Register_menu">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content">
+
+        <ImageView
+            android:id="@+id/registrationbackgound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerInside"
+            android:src="@drawable/regsitrationtopmain"
+            android:visibility="visible"
+            app:srcCompat="@drawable/regsitrationtopmain"
+            tools:srcCompat="@drawable/regsitrationtopmain"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1.5"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content">
+        <Button
+            android:id="@+id/btntravellerReg"
+            android:layout_width="335dp"
+            android:layout_height="65dp"
+            android:onClick="regTravellerOnClick"
+            android:text="@string/TravellerReg"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btncabanaReg"
+            android:layout_width="335dp"
+            android:layout_height="65dp"
+
+            android:layout_marginTop="25dp"
+            android:onClick="regCabanaOnClick"
+            android:text="@string/cabanaReg"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

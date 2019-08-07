@@ -1,5 +1,6 @@
 package com.example.hideoutcabins;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.core.view.GravityCompat;
@@ -63,6 +64,8 @@ public class Traveller_nav extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this,Login.class);
+            startActivity(intent);
             return true;
         }
 
@@ -85,6 +88,10 @@ public class Traveller_nav extends AppCompatActivity
         } else if (id == R.id.nav_traveller_history) {
 
         }  else if (id == R.id.nav_traveller_profile) {
+
+            FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+            tx.replace(R.id.trvellermainLayout,new Traveller_Profile());
+            tx.commit();
 
         }
 
