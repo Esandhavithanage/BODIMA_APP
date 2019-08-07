@@ -17,7 +17,7 @@ public class Registration_Rooms extends AppCompatActivity {
     }
 
     public void onclick(View view){
-        Intent intent = new Intent(Registration_Rooms.this,addPhotos.class);
+        Intent intent = new Intent(Registration_Rooms.this,cabanaLocation.class);
         startActivity(intent);
     }
 }

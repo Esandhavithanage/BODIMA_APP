@@ -49,4 +49,8 @@
     <string name="Amari"> Amari Galle </string>
     <string name="visit"> Visit Hotel web site </string>
 
+    <string name="longitude">Longitude </string>
+    <string name="latitude"> Latitude </string>
+    <string name="Next"> Next </string>
+
 </resources>
