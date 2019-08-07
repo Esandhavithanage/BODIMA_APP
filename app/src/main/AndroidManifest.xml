@@ -37,6 +37,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Request"></activity>
+        <activity android:name=".Rating" />
+        <activity android:name=".History" />
+        <activity android:name=".Notifcation" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
