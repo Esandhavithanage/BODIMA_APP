@@ -40,22 +40,43 @@
     <string name="btnCancle">Cancle Request</string>
     <string name="btnnav"> Navigation </string>
     <string name="app_name">HideoutCabins</string>
+    <string name="name">Hotel Name</string>
+    <string name="address">Address</string>
+    <string name="Eaddress">Email Address</string>
+    <string name="password">Password</string>
+    <string name="TElnum">Tel Number</string>
+    <string name="register">Register</string>
+    <string name="roomD">Room Details</string>
+    <string name="rdetails1">Number of Single Room : </string>
+    <string name="rdetails2">Number of Double Room : </string>
+    <string name="Price">Price </string>
+    <string name="sub">Submit  </string>
+    <string name="Rs"> LKR  </string>
+    <string name="discription"> Show your beauty to world....
+                                Creativity makes Prefect....          </string>
+    <string name="discription2"> (you can only Upload five photos)        </string>
+    <string name="up"> Upload  </string>
+    <string name="Finish"> Finish </string>
+    <string name="Update"> Update </string>
+    <string name="Amari"> Amari Galle </string>
+    <string name="visit"> Visit Hotel web site </string>
 
+    <string name="longitude">Longitude </string>
+    <string name="latitude"> Latitude </string>
+    <string name="Next"> Next </string>
+    <string name="Edit"> Edit </string>
 
     <string name="resturent_name">Kandy cabana</string>
-
     <string name="firstName">First Name</string>
     <string name="lastname">Last name</string>
     <string name="Email">Email</string>
     <string name="Address">Address</string>
-    <string name="password">Password</string>
-    <string name="Edit">Edit</string>
     <string name="update">Update</string>
     <string name="price">Price</string>
 
     <string name="login">Login</string>
-    <string name="register">Register</string>
 
     <string name="TravellerReg">Traveller Registration</string>
     <string name="cabanaReg">Cabana Registration</string>
+
 </resources>

@@ -19,6 +19,11 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".cabanaLocation"></activity>
+        <activity android:name=".viewDetails" />
+        <activity android:name=".addPhotos" />
+        <activity android:name=".Registration_Rooms" />
+        <activity android:name=".hotelRegistration" />
         <activity android:name=".Register_traveller"></activity>
         <activity android:name=".Register_menu" />
         <activity android:name=".Login" />

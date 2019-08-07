@@ -2,9 +2,16 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D50B54</color>
-    <color name = "dark_blue">#3023AE</color>
-    <color name="red">#B81A9E</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="dark_Orange">#F07304</color>
+    <color name="Orange">#F05A21</color>
+    <color name="Orange2">#F8CF51</color>
+    <color name="black">#272725</color>
+    <color name="white">#EBEBE3</color>
+    <color name="red">#E42C46</color>
+    <color name="yuello">#ECE392</color>
+    <color name="Blue">#3F51B5</color>
+    <color name ="dark_blue">#3023AE</color>
     <color name="history1">#CAC3C3</color>
     <color name="histiry2">#8DE414</color>
     <color name="history3">#474DC0</color>
@@ -12,4 +19,5 @@
     <color name="DarkRed">#E70C0C</color>
     <color name="appTitale">#DFFA2F01</color>
     <color name="backgcolor">#ffffb3</color>
+
 </resources>
