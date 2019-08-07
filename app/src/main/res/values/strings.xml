@@ -1,31 +1,45 @@
 <resources>
-    <string name="app_name">HideoutCabins</string>
     <string name="title_activity_cabin_nav">Cabin_nav</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_Traveler_header_title">Esandha Vithanage</string>
+    <string name="nav_Caban_header_title">Kandy cabana</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Logout</string>
-
     <string name="menu_home">Home</string>
-
     <string name="travellmenu_request">Request</string>
-
     <string name="cabinmenu_rating">Rating</string>
     <string name="cabinmenu_checkOut">Rating</string>
-
     <string name="menu_History">History</string>
     <string name="menu_prfile">Profile</string>
     <string name="title_activity_traveller_nav">Traveller</string>
     <string name="btnrequest">Send request</string>
-    <string name="TP">Telephone number</string>
     <string name="Addres">Address</string>
-
+    <string name="TP">Telephone Number</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="resturent_name">Kandy cabana</string>
-
-
+    <string name="reg">Register</string>
+    <string name="reject">Reject</string>
+    <string name="confirm">Confirm</string>
+    <string name="fromDate">From Date</string>
+    <string name="toDate">To Date</string>
+    <string name="reject1">Reject</string>
+    <string name="History">History</string>
+    <string name="traveler">Traveler Details</string>
+    <string name="TVname">Traveler Name</string>
+    <string name="TVtel">Traveler TeleNumber</string>
+    <string name="TVNIC">Traveler NIC</string>
+    <string name="rate">Rating</string>
+    <string name="yourRate">Your Rating </string>
+    <string name="currnt">Current Customer</string>
+    <string name="Customer1">Customer 1</string>
+    <string name="Customer2">Customer 2</string>
+    <string name="Customer3">Customer 3</string>
+    <string name="check">Check Out</string>
+    <string name="req">Request</string>
+    <string name="caName">Cabanas Name</string>
+    <string name="btnCancle">Cancle Request</string>
+    <string name="btnnav"> Navigation </string>
+    <string name="app_name">HideoutCabins</string>
     <string name="name">Hotel Name</string>
     <string name="address">Address</string>
     <string name="Eaddress">Email Address</string>
@@ -42,9 +56,7 @@
                                 Creativity makes Prefect....          </string>
     <string name="discription2"> (you can only Upload five photos)        </string>
     <string name="up"> Upload  </string>
-    <string name="confirm"> Confirm Password  </string>
     <string name="Finish"> Finish </string>
-    <string name="Edit"> Edit </string>
     <string name="Update"> Update </string>
     <string name="Amari"> Amari Galle </string>
     <string name="visit"> Visit Hotel web site </string>
@@ -52,5 +64,19 @@
     <string name="longitude">Longitude </string>
     <string name="latitude"> Latitude </string>
     <string name="Next"> Next </string>
+    <string name="Edit"> Edit </string>
+
+    <string name="resturent_name">Kandy cabana</string>
+    <string name="firstName">First Name</string>
+    <string name="lastname">Last name</string>
+    <string name="Email">Email</string>
+    <string name="Address">Address</string>
+    <string name="update">Update</string>
+    <string name="price">Price</string>
+
+    <string name="login">Login</string>
+
+    <string name="TravellerReg">Traveller Registration</string>
+    <string name="cabanaReg">Cabana Registration</string>
 
 </resources>
