@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "682426056295",
+    "firebase_url": "https://hideoutcabins-70298.firebaseio.com",
+    "project_id": "hideoutcabins-70298",
+    "storage_bucket": "hideoutcabins-70298.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682426056295:android:3dd1bf26c061f31e741ec2",
+        "android_client_info": {
+          "package_name": "com.example.hideoutcabins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682426056295-a4ha7kahl06gd3q0efh2lfofvl2l1556.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hideoutcabins",
+            "certificate_hash": "7872c813e1d69722afa0efddfc3aa4d68b1b7536"
+          }
+        },
+        {
+          "client_id": "682426056295-v5b4caapdufgt67dh07u5f8dkth0aku2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC3XsSn5604Lfx0vp5in00UtFkDAR-SMB0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682426056295-v5b4caapdufgt67dh07u5f8dkth0aku2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

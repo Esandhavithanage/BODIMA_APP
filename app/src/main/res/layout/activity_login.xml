@@ -32,6 +32,7 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="esa"
         android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtUname"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -58,6 +59,7 @@
         android:layout_marginRight="16dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:text="123"
         android:textSize="24sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/txtPassowrd"
         app:layout_constraintEnd_toEndOf="parent" />

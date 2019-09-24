@@ -24,6 +24,7 @@ Button regTraveller,regCabana;
     }
 
     public void regCabanaOnClick(View view){
-
+        Intent intent = new Intent(Register_menu.this,hotelRegistration.class);
+        startActivity(intent);
     }
 }

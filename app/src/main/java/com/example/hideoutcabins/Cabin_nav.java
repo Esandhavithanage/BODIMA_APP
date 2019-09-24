@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
 
@@ -33,6 +34,9 @@ public class Cabin_nav extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+        FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+        tx.replace(R.id.cabinmainLayout,new Fnotification());
+        tx.commit();
     }
 
     @Override
@@ -76,15 +80,27 @@ public class Cabin_nav extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_cabin_home) {
-
+            FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+            tx.replace(R.id.cabinmainLayout,new Fnotification());
+            tx.commit();
         } else if (id == R.id.nav_cabin_checkout) {
+            FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+            tx.replace(R.id.cabinmainLayout,new FCheckout());
+            tx.commit();
 
         } else if (id == R.id.nav_cabin_history) {
+            FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+            tx.replace(R.id.cabinmainLayout,new FHistory());
+            tx.commit();
 
         } else if (id == R.id.nav_cabin_rating) {
+            FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
+            tx.replace(R.id.cabinmainLayout,new FRating());
+            tx.commit();
 
         }else if (id == R.id.nav_cabin_profile) {
-
+            Intent intent = new Intent(this,viewDetails.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

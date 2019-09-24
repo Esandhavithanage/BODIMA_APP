@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
+
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -19,12 +22,13 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".cabanaLocation"></activity>
+        <activity android:name=".addComment"></activity>
+        <activity android:name=".cabanaLocation" />
         <activity android:name=".viewDetails" />
         <activity android:name=".addPhotos" />
         <activity android:name=".Registration_Rooms" />
         <activity android:name=".hotelRegistration" />
-        <activity android:name=".Register_traveller"></activity>
+        <activity android:name=".Register_traveller" />
         <activity android:name=".Register_menu" />
         <activity android:name=".Login" />
         <activity
@@ -42,10 +46,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Request"></activity>
+        <activity android:name=".Request" />
         <activity android:name=".Rating" />
         <activity android:name=".History" />
         <activity android:name=".Notifcation" />
+
+        <service android:name=".service.DBNotification"
+            android:enabled="true"
+            />
+
+        <receiver android:name=".dataBroadCastRecevier"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+                <action android:name="com.example.andy.CUSTOM_INTENT"></action>
+            </intent-filter>
+        </receiver>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

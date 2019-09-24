@@ -60,6 +60,7 @@
     <string name="Update"> Update </string>
     <string name="Amari"> Amari Galle </string>
     <string name="visit"> Visit Hotel web site </string>
+    <string name="next">NEXT </string>
 
     <string name="longitude">Longitude </string>
     <string name="latitude"> Latitude </string>
@@ -72,11 +73,16 @@
     <string name="Email">Email</string>
     <string name="Address">Address</string>
     <string name="update">Update</string>
-    <string name="price">Price</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="Doublebedprice">Double Bed Price</string>
+    <string name="singalbedprice">Singal Bed Price</string>
 
     <string name="login">Login</string>
+    <string name="post">sent</string>
 
     <string name="TravellerReg">Traveller Registration</string>
     <string name="cabanaReg">Cabana Registration</string>
+    <string name="cabaP">Profile Details</string>
 
 </resources>

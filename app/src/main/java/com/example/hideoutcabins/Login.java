@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.hideoutcabins.service.DBNotification;
+
 public class Login extends AppCompatActivity {
 Button login,register;
 EditText uname,pass;
@@ -28,8 +30,9 @@ EditText uname,pass;
         String password=pass.getText().toString();
 
         if (name.equals("esa") && password.equals("123")){
-
+            Intent dbservice = new Intent(Login.this, DBNotification.class);
             Intent intent = new Intent(Login.this,Traveller_nav.class);
+            startService(dbservice);
             startActivity(intent);
         }
         else{

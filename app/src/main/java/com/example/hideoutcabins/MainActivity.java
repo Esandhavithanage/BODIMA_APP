@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,20 +18,16 @@ Button s;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent usermenu = new Intent(MainActivity.this, Login.class);
                 startActivity(usermenu);
             }
-        },2000);
+        },5000);
 
     }
 
-
-    public void sendMessage(View view) {
-        Intent intent = new Intent(MainActivity.this,Notifcation.class);
-        startActivity(intent);
-    }
 
 }

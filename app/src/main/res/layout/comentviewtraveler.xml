@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="225dp"
+    android:orientation="vertical">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        android:background="@drawable/card_background"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/txtdate"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:gravity="center_horizontal"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txttname"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:gravity="center"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/txtcoment"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="textPersonName"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnedit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Edit" />
+
+            <Button
+                android:id="@+id/btnupdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/Update" />
+
+            <Button
+                android:id="@+id/btndelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/delete" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtid"
+        android:layout_width="match_parent"
+        android:layout_height="12dp" />
+
+</LinearLayout>
