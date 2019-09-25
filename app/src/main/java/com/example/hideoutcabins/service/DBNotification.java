@@ -32,11 +32,7 @@ public class DBNotification extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-//        devicemodel = android.os.Build.MODEL;
-//        // mStorageRef = FirebaseStorage.getInstance().getReference();
-//        database = FirebaseDatabase.getInstance();
-//        RequestRef = database.getReference("CameraRequest");
-//        SpyStatus = database.getReference("SpyStatus");
+
         RequestRef = FirebaseDatabase.getInstance().getReference().child("reqest");
         ListenerForRequestDone();
         System.out.println("Service started");
@@ -55,6 +51,7 @@ public class DBNotification extends Service {
         RequestRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
                 if(dataSnapshot.hasChild("status") && dataSnapshot.child("status").getValue().equals("PendingP")){
                     System.out.println("child added");
                     System.out.println(dataSnapshot);

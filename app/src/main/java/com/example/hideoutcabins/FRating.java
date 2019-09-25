@@ -58,7 +58,7 @@ public class FRating extends Fragment {
     }
 
 
-    public void getcoments(final String cid) {
+    public void getrate(final String cid) {
         Log.e("comment",cid);
 
         reference.child("rate").addValueEventListener(new ValueEventListener() {
@@ -118,7 +118,7 @@ public class FRating extends Fragment {
         ratingBar2 = view.findViewById(R.id.ratingBar2);
         textView = view.findViewById(R.id.txtrating);
 
-        getcoments("CB001");
+        getrate("CB001");
         return view;
     }
 

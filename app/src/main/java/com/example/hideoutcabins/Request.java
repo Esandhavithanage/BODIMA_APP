@@ -20,15 +20,18 @@ public class Request extends AppCompatActivity {
     TextView txtcname;
     Button btncancel,btnback;
     String id;
+
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference reference = firebaseDatabase.getReference();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request);
 
        final Intent intent = getIntent();
-         id = intent.getStringExtra("RID");
+        id = intent.getStringExtra("RID");
         String cname = intent.getStringExtra("RCname");
 
         txtcname = findViewById(R.id.txtCname);
@@ -68,8 +71,6 @@ public class Request extends AppCompatActivity {
         btnback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              //  Intent intent1 = new Intent(getBaseContext(),Traveller_nav.class);
-                //startActivity(intent1);
 
             }
         });

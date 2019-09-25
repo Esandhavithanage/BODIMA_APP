@@ -52,6 +52,7 @@ public class FHistoryCabana extends Fragment {
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference reference = firebaseDatabase.getReference();
+
     private ArrayList<Request> requestlist = new ArrayList<Request>();
     private Request[] requeststoarray=null;
     private viewComentsTraveler.OnFragmentInteractionListener mListener;
@@ -79,25 +80,27 @@ public class FHistoryCabana extends Fragment {
 
                     newrequest = new Request();
 
-                    Log.e("comment",dataSnapshot1.toString());
-                    Log.e("comment",dataSnapshot1.child("date").getValue().toString());
+
 
                     if (dataSnapshot1.child("date").getValue().toString().equals(searchtext.getText().toString()) && dataSnapshot1.child("cId").getValue().toString().equals(cid) ){
+
                         newrequest.settId(dataSnapshot1.child("tId").getValue().toString());
                         newrequest.settName(dataSnapshot1.child("tName").getValue().toString());
                         newrequest.setDate(dataSnapshot1.child("date").getValue().toString());
-                        Log.e("comment",newrequest.gettName());
+
                         requestlist.add(newrequest);
                     }
                 }
 
-                Log.e("comment4",""+requestlist.size());
+
                 requeststoarray = new Request[requestlist.size()];
                 for (int i = 0;i<requestlist.size();i++){
+
                     requeststoarray[i]=requestlist.get(i);
 
                     Log.e("comment",requeststoarray[i].gettName());
                 }
+
                 custemAdapter custemAdapter = new custemAdapter();
                 listView.setAdapter(custemAdapter);
             }
@@ -173,7 +176,7 @@ public class FHistoryCabana extends Fragment {
 
 
     private void updateLabel() {
-        String myFormat = "YYY-MM-dd"; //In which you need put here
+        String myFormat = "YYY-MM-dd";
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat);
 
         searchtext.setText(sdf.format(myCalendar.getTime()));
@@ -225,8 +228,6 @@ public class FHistoryCabana extends Fragment {
             txtdate   = view.findViewById(R.id.txtrequestdate);
             txtcabananame = view.findViewById(R.id.txtTravelername);
             txtid = view.findViewById(R.id.txtCid);
-
-
 
 
             txtdate.setText(requestlist.get(i).getDate());

@@ -94,6 +94,7 @@ public class FHistoryTraveler extends Fragment {
 
                     Log.e("comment",requeststoarray[i].getcName());
                 }
+
                 custemAdapter custemAdapter = new custemAdapter();
                 listView.setAdapter(custemAdapter);
             }

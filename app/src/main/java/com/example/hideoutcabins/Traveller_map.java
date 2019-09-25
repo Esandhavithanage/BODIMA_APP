@@ -137,6 +137,7 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                 request1.settNumber("1213854");
                 request1.setDate(currentDateandTime);
                 Toast.makeText(getContext(),request1.getcName(),Toast.LENGTH_LONG).show();
+
                 dbref.push().setValue(request1);
             }
         });

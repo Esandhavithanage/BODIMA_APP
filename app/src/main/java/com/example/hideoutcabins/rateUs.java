@@ -34,20 +34,21 @@ public class rateUs extends AppCompatActivity {
         intent = getIntent();
         ratingBar = findViewById(R.id.ratingBar);
         rateus = findViewById(R.id.btnsubmit);
-        givecomment = findViewById(R.id.btngivecoment);
+
 
         rateus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Rating rating = new Rating();
+
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String currentDateandTime = sdf.format(new Date());
 
                 rating.setcId(intent.getStringExtra("CID"));
-                rating.setRating(Integer.valueOf((int) ratingBar.getRating()));
+                rating.setRating((int) ratingBar.getRating());
                 rating.setDate(currentDateandTime);
 
-                Log.e("gggg",String.valueOf((int)ratingBar.getRating()));
+
 
                reference.push().setValue(rating);
 
@@ -55,13 +56,7 @@ public class rateUs extends AppCompatActivity {
         });
 
 
-        givecomment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),addComment.class);
-                startActivity(intent);
-            }
-        });
+
 
     }
 }
