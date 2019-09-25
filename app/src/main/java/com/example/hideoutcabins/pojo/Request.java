@@ -8,6 +8,15 @@ public class Request {
     private String tNumber;
     private String status;
     private String checkout;
+    private String date;
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public String gettId() {
         return tId;
@@ -16,9 +25,6 @@ public class Request {
     public void settId(String tId) {
         this.tId = tId;
     }
-
-
-
 
     public String getcId() {
         return cId;

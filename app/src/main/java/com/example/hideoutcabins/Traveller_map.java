@@ -41,7 +41,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 
@@ -121,6 +123,9 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
             public void onClick(View view) {
                 DatabaseReference dbref  = FirebaseDatabase.getInstance().getReference().child("reqest");
 
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String currentDateandTime = sdf.format(new Date());
+
                 Request request1 = new Request();
                 Toast.makeText(getContext(),"setOnClickListener",Toast.LENGTH_LONG).show();
                 request1.settId("T13344");
@@ -128,8 +133,9 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                 request1.setcId("CB001");
                 request1.setcName("Kandy");
                 request1.setCheckout("Fulse");
-                request1.setStatus("Pending");
+                request1.setStatus("PendingP");
                 request1.settNumber("1213854");
+                request1.setDate(currentDateandTime);
                 Toast.makeText(getContext(),request1.getcName(),Toast.LENGTH_LONG).show();
                 dbref.push().setValue(request1);
             }

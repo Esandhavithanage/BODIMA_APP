@@ -5,6 +5,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 
+import com.example.hideoutcabins.Request;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -54,31 +55,40 @@ public class DBNotification extends Service {
         RequestRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                if(dataSnapshot.hasChild("status") && dataSnapshot.child("status").getValue().equals("PendingP")){
+                    System.out.println("child added");
+                    System.out.println(dataSnapshot);
 
 
-                Intent intent=new Intent("com.example.andy.CUSTOM_INTENT");
-                sendBroadcast(intent);
+                    Intent i = new Intent();
+                    i.setClass(getApplicationContext(), Request.class);
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    i.putExtra("RID",dataSnapshot.getKey());
+                    i.putExtra("RCname",String.valueOf(dataSnapshot.child("cName").getValue()));
+                    startActivity(i);
+                }
 
             }
 
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 // StartImageCapture(1);
+                System.out.println("child changed");
             }
 
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+                System.out.println("child removed");
             }
 
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
+                System.out.println("child moved");
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                System.out.println("child error");
             }
         });
     }

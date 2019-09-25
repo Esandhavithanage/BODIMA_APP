@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/app_background"
     android:orientation="vertical"
-    tools:context=".FHistoryTraveler">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".FHistoryCabana" >
 
     <TextView
         android:id="@+id/textView14"
@@ -41,7 +36,7 @@
             android:text="@string/fromDate" />
 
         <EditText
-            android:id="@+id/txtsdate"
+            android:id="@+id/txtsdate_cabana"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -50,14 +45,14 @@
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/btnsearch"
+            android:id="@+id/btnsearch_cabana"
             android:layout_width="99dp"
             android:layout_height="match_parent"
             android:text="@string/search" />
     </LinearLayout>
 
     <ListView
-        android:id="@+id/requestview"
+        android:id="@+id/requestview_cabana"
         android:scrollbars="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

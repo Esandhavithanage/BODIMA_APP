@@ -83,14 +83,9 @@ public class Cabin_nav extends AppCompatActivity
             FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
             tx.replace(R.id.cabinmainLayout,new Fnotification());
             tx.commit();
-        } else if (id == R.id.nav_cabin_checkout) {
+        }  else if (id == R.id.nav_cabin_history) {
             FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-            tx.replace(R.id.cabinmainLayout,new FCheckout());
-            tx.commit();
-
-        } else if (id == R.id.nav_cabin_history) {
-            FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-            tx.replace(R.id.cabinmainLayout,new FHistory());
+            tx.replace(R.id.cabinmainLayout,new FHistoryCabana());
             tx.commit();
 
         } else if (id == R.id.nav_cabin_rating) {

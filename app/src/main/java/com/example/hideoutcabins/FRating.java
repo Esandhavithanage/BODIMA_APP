@@ -4,11 +4,25 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.RatingBar;
+import android.widget.TextView;
+
+import com.example.hideoutcabins.pojo.comment;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 
 /**
@@ -29,21 +43,55 @@ public class FRating extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference reference = firebaseDatabase.getReference();
+
+    private ArrayList<comment> commentlist = new ArrayList<comment>();
+    private viewComentsTraveler.OnFragmentInteractionListener mListener;
+    RatingBar ratingBar2;
+    TextView textView;
+
+
 
     public FRating() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FRating.
-     */
-    // TODO: Rename and change types and number of parameters
+
+    public void getcoments(final String cid) {
+        Log.e("comment",cid);
+
+        reference.child("rate").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.e("comment",cid);
+                int totalrate=0,coun=0;
+
+                for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
+
+
+                    if (dataSnapshot1.child("cId").getValue().toString().equals(cid) ){
+                        totalrate = totalrate + Integer.parseInt(dataSnapshot1.child("rating").getValue().toString());
+                        coun++;
+                    }
+                }
+
+                int totalrating = totalrate/coun;
+
+                ratingBar2.setRating(totalrating);
+                textView.setText(String.valueOf(totalrating));
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
     public static FRating newInstance(String param1, String param2) {
         FRating fragment = new FRating();
         Bundle args = new Bundle();
@@ -65,8 +113,13 @@ public class FRating extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frating, container, false);
+        View view = inflater.inflate(R.layout.fragment_frating, container, false);
+
+        ratingBar2 = view.findViewById(R.id.ratingBar2);
+        textView = view.findViewById(R.id.txtrating);
+
+        getcoments("CB001");
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

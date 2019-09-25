@@ -83,19 +83,19 @@ public class Traveller_nav extends AppCompatActivity
             tx.replace(R.id.trvellermainLayout,new Traveller_map());
             tx.commit();
 
-        } else if (id == R.id.nav_traveller_checkout) {
+        } else if (id == R.id.nav_traveller_comments) {
+
             FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-            tx.replace(R.id.trvellermainLayout,new FRequest());
+            tx.replace(R.id.trvellermainLayout,new viewComentsTraveler());
             tx.commit();
+
 
         } else if (id == R.id.nav_traveller_history) {
-        /*    FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-            tx.replace(R.id.trvellermainLayout,new FHistory());
-            tx.commit();*/
 
             FragmentTransaction tx = getSupportFragmentManager().beginTransaction();
-            tx.replace(R.id.trvellermainLayout,new viewComentsCabana());
+            tx.replace(R.id.trvellermainLayout,new FHistoryTraveler());
             tx.commit();
+
 
         }  else if (id == R.id.nav_traveller_profile) {
 

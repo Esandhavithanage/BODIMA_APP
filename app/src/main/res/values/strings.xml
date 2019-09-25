@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Logout</string>
     <string name="menu_home">Home</string>
-    <string name="travellmenu_request">Request</string>
+    <string name="travellmenu_request">Comments</string>
     <string name="cabinmenu_rating">Rating</string>
     <string name="cabinmenu_checkOut">Rating</string>
     <string name="menu_History">History</string>
@@ -20,7 +20,7 @@
     <string name="reg">Register</string>
     <string name="reject">Reject</string>
     <string name="confirm">Confirm</string>
-    <string name="fromDate">From Date</string>
+    <string name="fromDate">Date</string>
     <string name="toDate">To Date</string>
     <string name="reject1">Reject</string>
     <string name="History">History</string>
@@ -84,5 +84,8 @@
     <string name="TravellerReg">Traveller Registration</string>
     <string name="cabanaReg">Cabana Registration</string>
     <string name="cabaP">Profile Details</string>
+    <string name="rateUs">rate us</string>
+    <string name="search">search</string>
+    <string name="comment">comment</string>
 
 </resources>

@@ -20,6 +20,7 @@ public class viewDetails extends AppCompatActivity {
     }
     public void onclick(View view){
         Intent intent = new Intent(viewDetails.this,Login.class);
+
         startActivity(intent);
     }
 }

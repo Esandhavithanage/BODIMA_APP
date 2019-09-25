@@ -1,6 +1,7 @@
 package com.example.hideoutcabins;
 
-import android.content.Context;
+import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -13,21 +14,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.hideoutcabins.pojo.Request;
-import com.example.hideoutcabins.pojo.comment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 
-public class Fnotification extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Activities that contain this fragment must implement the
+ * {@link FHistoryTraveler.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+ * Use the {@link FHistoryTraveler#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class FHistoryTraveler extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -39,36 +51,38 @@ public class Fnotification extends Fragment {
 
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     private DatabaseReference reference = firebaseDatabase.getReference();
-    private ArrayList<com.example.hideoutcabins.pojo.Request> requestlist = new ArrayList<com.example.hideoutcabins.pojo.Request>();
+    private ArrayList<Request> requestlist = new ArrayList<Request>();
     private Request[] requeststoarray=null;
     private viewComentsTraveler.OnFragmentInteractionListener mListener;
     private ListView listView;
+    private Button button;
+    final Calendar myCalendar = Calendar.getInstance();
+    private  EditText searchtext;
+    private  TextView todate,fromdate;
 
-    public Fnotification() {
-        // Required empty public constructor
-    }
+  //  private OnFragmentInteractionListener mListener;
 
 
-    public void getreqest(final String cid) {
-        Log.e("comment",cid);
+    public void getreqest(final String Tid) {
+        Log.e("comment",Tid);
 
         reference.child("reqest").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                Log.e("comment",cid);
+                Log.e("comment",Tid);
                 Request newrequest;
                 for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
 
                     newrequest = new Request();
 
                     Log.e("comment",dataSnapshot1.toString());
-                   // Log.e("comment",dataSnapshot1.child("date").getValue().toString());
+                    Log.e("comment",dataSnapshot1.child("date").getValue().toString());
 
-                    if (dataSnapshot1.child("cId").getValue().toString().equals(cid) && dataSnapshot1.child("status").getValue().toString().equals("PendingP") ){
-                        newrequest.settId(dataSnapshot1.getKey());
-                        newrequest.settName(dataSnapshot1.child("tName").getValue().toString());
-                        newrequest.settNumber(dataSnapshot1.child("tNumber").getValue().toString());
-                       // Log.e("comment",newrequest.gettName());
+                    if (dataSnapshot1.child("date").getValue().toString().equals(searchtext.getText().toString()) && dataSnapshot1.child("tId").getValue().toString().equals(Tid) ){
+                        newrequest.setcId(dataSnapshot1.child("cId").getValue().toString());
+                        newrequest.setcName(dataSnapshot1.child("cName").getValue().toString());
+                        newrequest.setDate(dataSnapshot1.child("date").getValue().toString());
+                        Log.e("comment",newrequest.getcName());
                         requestlist.add(newrequest);
                     }
                 }
@@ -78,7 +92,7 @@ public class Fnotification extends Fragment {
                 for (int i = 0;i<requestlist.size();i++){
                     requeststoarray[i]=requestlist.get(i);
 
-                   // Log.e("comment",requeststoarray[i].gettName());
+                    Log.e("comment",requeststoarray[i].getcName());
                 }
                 custemAdapter custemAdapter = new custemAdapter();
                 listView.setAdapter(custemAdapter);
@@ -91,9 +105,14 @@ public class Fnotification extends Fragment {
         });
     }
 
-    // TODO: Rename and change types and number of parameters
-    public static Fnotification newInstance(String param1, String param2) {
-        Fnotification fragment = new Fnotification();
+
+    public FHistoryTraveler() {
+        // Required empty public constructor
+    }
+
+
+    public static FHistoryTraveler newInstance(String param1, String param2) {
+        FHistoryTraveler fragment = new FHistoryTraveler();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -113,20 +132,60 @@ public class Fnotification extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view =inflater.inflate(R.layout.fragment_fnotification, container, false);
-        listView = view.findViewById(R.id.requestlist);
-        getreqest("CB001");
+
+        View view = inflater.inflate(R.layout.fragment_fhistory, container, false);
+        listView = view.findViewById(R.id.requestview);
+        button = view.findViewById(R.id.btnsearch);
+        searchtext = view.findViewById(R.id.txtsdate);
+
+
+        final DatePickerDialog.OnDateSetListener date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                myCalendar.set(Calendar.YEAR, year);
+                myCalendar.set(Calendar.MONTH, monthOfYear);
+                myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+                updateLabel();
+            }
+        };
+
+        searchtext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new DatePickerDialog(getContext(),date, myCalendar
+                        .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                        myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+            }
+        });
+
+
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getreqest("T13344");
+            }
+        });
+
+
+
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
 
+    private void updateLabel() {
+        String myFormat = "YYY-MM-dd";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat);
 
+        searchtext.setText(sdf.format(myCalendar.getTime()));
+    }
 
     @Override
     public void onDetach() {
@@ -149,6 +208,8 @@ public class Fnotification extends Fragment {
         void onFragmentInteraction(Uri uri);
     }
 
+
+
     class custemAdapter extends BaseAdapter {
 
         @Override
@@ -168,40 +229,38 @@ public class Fnotification extends Fragment {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            view = getLayoutInflater().inflate(R.layout.requestcomfermlayout,null);
+            view = getLayoutInflater().inflate(R.layout.historylistview,null);
 
-            final TextView txtnumber,txtnmae,txtid;
-            Button btnconferm,btnreject;
+            final TextView txtdate,txttravelername,txtid;
+            Button btnrate,btngivecoment;
 
-            txtnmae   = view.findViewById(R.id.txtnmae);
-            txtnumber = view.findViewById(R.id.txtnumber);
+            txtdate   = view.findViewById(R.id.txtdate);
+            txttravelername = view.findViewById(R.id.txtcabananame);
             txtid = view.findViewById(R.id.txtid);
-            btnconferm =view.findViewById(R.id.btnconferm);
-            btnreject = view.findViewById(R.id.btnreject);
+            btnrate = view.findViewById(R.id.btnrate);
+            btngivecoment = view.findViewById(R.id.btngivecoment);
 
-            final DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("reqest");
+            txtdate.setText(requestlist.get(i).getDate());
+            txttravelername.setText(requestlist.get(i).getcName());
+            txtid.setText(requestlist.get(i).getcId());
 
-            txtnumber.setText(requestlist.get(i).gettNumber());
-            txtnmae.setText(requestlist.get(i).gettName());
-            txtid.setText(requestlist.get(i).gettId());
-
-
-
-            btnconferm.setOnClickListener(new View.OnClickListener() {
+            btnrate.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    dbref.child(txtid.getText().toString()).child("status").setValue("confirm");
+                    Intent intent = new Intent(getActivity(),rateUs.class);
+                    intent.putExtra("CID",txtid.getText().toString());
+                    startActivity(intent);
                 }
             });
 
-
-            btnreject.setOnClickListener(new View.OnClickListener() {
+            btngivecoment.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    dbref.child(txtid.getText().toString()).child("status").setValue("Reject");
+                    Intent intent = new Intent(getActivity(),addComment.class);
+                    intent.putExtra("CID",txtid.getText().toString());
+                    startActivity(intent);
                 }
             });
-
             return view;
         }
     }

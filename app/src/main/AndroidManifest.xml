@@ -9,8 +9,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
-
-
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
@@ -22,7 +20,8 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addComment"></activity>
+        <activity android:name=".rateUs"></activity>
+        <activity android:name=".addComment" />
         <activity android:name=".cabanaLocation" />
         <activity android:name=".viewDetails" />
         <activity android:name=".addPhotos" />
@@ -51,15 +50,17 @@
         <activity android:name=".History" />
         <activity android:name=".Notifcation" />
 
-        <service android:name=".service.DBNotification"
-            android:enabled="true"
-            />
+        <service
+            android:name=".service.DBNotification"
+            android:enabled="true" />
 
-        <receiver android:name=".dataBroadCastRecevier"
-            android:enabled="true">
+        <receiver
+            android:name=".dataBroadCastRecevier"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
-                <action android:name="com.example.andy.CUSTOM_INTENT"></action>
+                <!--<action android:name="android.provider.Telephony.SMS_RECEIVED" />-->
+                <action android:name="com.example.hideoutcabins.service.CUSTOM_BROADCAST" />
             </intent-filter>
         </receiver>
 

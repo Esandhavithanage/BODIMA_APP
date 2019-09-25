@@ -2,6 +2,7 @@ package com.example.hideoutcabins;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +26,9 @@ public class addComment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_comment);
 
+        Intent intent = getIntent();
+       final String id = intent.getStringExtra("CID");
+
         txtcomment = findViewById(R.id.txtcomment);
         btnSend = findViewById(R.id.btncomment);
         backbutn = findViewById(R.id.imgcomment);
@@ -38,7 +42,7 @@ public class addComment extends AppCompatActivity {
                 String comment = txtcomment.getText().toString();
 
                 comment1.setComment(comment);
-                comment1.setCid("CB001");
+                comment1.setCid(id);
                 comment1.setTid("T001");
                 comment1.setcName("kandy");
                 comment1.settName("esandha");
