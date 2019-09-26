@@ -18,7 +18,7 @@
             android:id="@+id/map"
             class="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="331dp"
+            android:layout_height="411dp"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
             android:layout_marginTop="0dp"
@@ -42,21 +42,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent" />
-
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollView"
-                android:layout_width="match_parent"
-                android:layout_height="91dp"
-                android:layout_below="@+id/rellayout1"
-                android:layout_alignParentBottom="true"
-                android:scrollbars="none">
-
-                <LinearLayout
-                    android:id="@+id/gallery"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal" />
-            </HorizontalScrollView>
 
             <LinearLayout
 
@@ -136,7 +121,7 @@
             <Button
                 android:id="@+id/btnrequst"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="59dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"

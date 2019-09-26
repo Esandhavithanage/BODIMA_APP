@@ -142,7 +142,7 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
             }
         });
 
-         gallery = view.findViewById(R.id.gallery);
+
 
         setCbamaMarkers();
 
@@ -151,38 +151,9 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
          return view;
     }
 
-    public void fillimage(String cabinid){
 
-        reference.child("upload").child(cabinid).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChildren()){
-                    showimages(dataSnapshot);
-                }else {
-                    Toast.makeText(getContext(),"No images todispaly",Toast.LENGTH_LONG).show();
-                }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
-    }
-
-    public void showimages(DataSnapshot dataSnapshot){
-        inflater = LayoutInflater.from(getContext());
-        if (gallery != null) {
-            gallery.removeAllViews();
-        }
-        for (int i=1;i<=5;i++){
-            View view1 = inflater.inflate(R.layout.imageitem,gallery,false);
-            ImageView imageView = view1.findViewById(R.id.galleryimageView);
-
-            Picasso.get().load(dataSnapshot.child("img"+i).getValue().toString()).into(imageView);
-            gallery.addView(view1);
-        }
-    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -273,8 +244,6 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                 TgoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                     @Override
                     public boolean onMarkerClick(Marker marker) {
-                     //   Toast.makeText(getContext(),marker.getSnippet(),Toast.LENGTH_LONG).show();
-                       // fillimage(marker.getSnippet());
                         Cabin cabin = cabinlist.get(marker.getSnippet());
 
                         txtnmae.setText(cabin.getName());

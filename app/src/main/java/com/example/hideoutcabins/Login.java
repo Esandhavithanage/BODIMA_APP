@@ -30,8 +30,7 @@ public class Login extends AppCompatActivity {
 Button login,register;
 EditText uname,pass;
 
-    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference databaseReference = firebaseDatabase.getReference();
+
 
 
     Switch aSwitch;
@@ -60,6 +59,7 @@ EditText uname,pass;
         aSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.e("LOGIN",""+aSwitch.isChecked());
                 if (aSwitch.isChecked()){
                     aSwitch.setText("Cabana");
                 }else {
@@ -72,13 +72,13 @@ EditText uname,pass;
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                if(validateEmail()&&validatePassword()){
+                if(validateEmail() && validatePassword()){
                     if (aSwitch.isChecked()){
+                        Log.e("LOGIN",""+aSwitch.isChecked());
                         loginCabane();
 
                     }else {
+                        Log.e("LOGIN",""+aSwitch.isChecked());
                         loginTraveler();
                     }
                 }
@@ -96,6 +96,8 @@ EditText uname,pass;
     }
 
     public  void loginCabane(){
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference();
         databaseReference.child("cabana").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -104,7 +106,9 @@ EditText uname,pass;
 
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
 
-                    if (dataSnapshot1.child("email").toString().equals(uname.getText().toString()) && dataSnapshot1.child("pasword").toString().equals(pass.getText().toString())){
+                    Log.e("loginCabane",dataSnapshot1.toString());
+                    if (dataSnapshot1.child("email").getValue().toString().equals(uname.getText().toString()) && dataSnapshot1.child("pasword").getValue().toString().equals(pass.getText().toString())){
+                        Log.e("loginCabane",dataSnapshot1.child("email").toString());
                         editor.putString("ID",dataSnapshot1.getKey());
                         editor.putString("name",dataSnapshot1.child("name").getValue().toString());
                         editor.putString("Type","cabana");
@@ -145,7 +149,7 @@ EditText uname,pass;
         progressDialog.setTitle("User Login");
         progressDialog.setMessage("User Login Happening... Wait!");
         progressDialog.setCancelable(false);
-       // progressDialog.show();
+        progressDialog.show();
 
 
         firebase.addValueEventListener(new ValueEventListener() {
@@ -165,7 +169,7 @@ EditText uname,pass;
                         editor.putString("Type","Traveler");
                         editor.putString("LoginStatus","true");
                         System.out.println(editor.commit()+" sharedPreferences");
-                   //     progressDialog.dismiss();
+                        progressDialog.dismiss();
                         startActivity(new Intent(Login.this,Traveller_nav.class));
                         break;
                     }

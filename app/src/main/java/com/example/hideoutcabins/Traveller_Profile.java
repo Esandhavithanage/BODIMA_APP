@@ -83,8 +83,6 @@ public class Traveller_Profile extends Fragment {
 
         View view =inflater.inflate(R.layout.fragment_traveller__profile, container, false);
         UsersharedPreferences = this.getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
-
-
         Tid = UsersharedPreferences.getString("ID",null);
 
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
@@ -101,8 +99,7 @@ public class Traveller_Profile extends Fragment {
         tpbtn2 = view.findViewById(R.id.tpbtn2);
 
 
-        Query query = FirebaseDatabase.getInstance().getReference("traveler")
-                .child(Tid);
+        Query query = FirebaseDatabase.getInstance().getReference("traveler").child(Tid);
 
         query.addValueEventListener(new ValueEventListener() {
             @Override
