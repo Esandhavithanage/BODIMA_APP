@@ -1,6 +1,8 @@
 package com.example.hideoutcabins;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.core.view.GravityCompat;
@@ -65,6 +67,10 @@ public class Cabin_nav extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            final SharedPreferences UsersharedPreferences = getSharedPreferences(Login.USERPREFERENSES, Context.MODE_PRIVATE);
+            final SharedPreferences.Editor editor = UsersharedPreferences.edit();
+            editor.clear();
+            editor.apply();
             Intent intent = new Intent(this,Login.class);
             startActivity(intent);
             return true;

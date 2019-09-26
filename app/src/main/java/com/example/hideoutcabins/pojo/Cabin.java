@@ -1,11 +1,11 @@
 package com.example.hideoutcabins.pojo;
 
 public class Cabin {
-    String  address;
-    String  email;
-    String  name;
-    String  tP;
-    String  pasword;
+    String address;
+    String email;
+    String name;
+    String tp;
+    String pasword;
     Double room_Single_Price;
     Double location_lat;
     Double location_lon;
@@ -35,12 +35,12 @@ public class Cabin {
         this.name = name;
     }
 
-    public String gettP() {
-        return tP;
+    public String getTp() {
+        return tp;
     }
 
-    public void settP(String tP) {
-        this.tP = tP;
+    public void setTp(String tp) {
+        this.tp = tp;
     }
 
     public String getPasword() {

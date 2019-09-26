@@ -19,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.hideoutcabins.pojo.Cabin;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -35,10 +36,21 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class cabanaLocation extends AppCompatActivity implements OnMapReadyCallback {
     Button dtnnext;
     EditText txtlat,txtlon;
+
+    String Hname, Aaddress,Emails,TeLphon,Password,Numofromms,SingleRoomPr,DouBleRoomPr;
+    DatabaseReference referece;
+    long maxId = 0;
+    Cabin cabin;
+
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
     private FusedLocationProviderClient fusedLocationClient;
@@ -62,8 +74,63 @@ public class cabanaLocation extends AppCompatActivity implements OnMapReadyCallb
         txtlat = findViewById(R.id.txtlat);
         txtlon = findViewById(R.id.txtlon);
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-
         getLocationPermission();
+
+        Intent intent = getIntent();
+        Hname = intent.getStringExtra("hotelNae") ;
+        Aaddress = intent.getStringExtra("adress") ;
+        Emails = intent.getStringExtra("eMmail") ;
+        TeLphon = intent.getStringExtra("tElNumber") ;
+        Password = intent.getStringExtra("paSsword") ;
+        Numofromms = intent.getStringExtra("Numofromms") ;
+        SingleRoomPr = intent.getStringExtra("singleRoomPr") ;;
+        DouBleRoomPr = intent.getStringExtra("DouBleRoomPr") ;
+
+
+        referece = FirebaseDatabase.getInstance().getReference().child("cabana");
+        referece.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    maxId  = (dataSnapshot.getChildrenCount());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+        cabin = new Cabin();
+        dtnnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                cabin.setAddress(Aaddress);
+                cabin.setEmail(Emails);
+                cabin.setTp(TeLphon);
+                cabin.setPasword(Password);
+                cabin.setRoom_Single_Price(Double.valueOf(SingleRoomPr));
+                cabin.setRoom_Double_Price(Double.valueOf(DouBleRoomPr));
+                cabin.setName(Hname);
+                cabin.setLocation_lat(Double.valueOf(txtlat.getText().toString()));
+                cabin.setLocation_lon(Double.valueOf(txtlon.getText().toString()));
+
+
+                Long tsLong = System.currentTimeMillis() / 1000;
+                String id = tsLong.toString();
+
+                referece.child("C"+id).setValue(cabin);
+
+                Toast.makeText(cabanaLocation.this,"data added successfully",Toast.LENGTH_LONG).show();
+
+                Intent intent = new Intent(cabanaLocation.this,addPhotos.class);
+                intent.putExtra("CabanaID",id);
+                startActivity(intent);
+
+            }
+
+        });
+
     }
 
     @Override

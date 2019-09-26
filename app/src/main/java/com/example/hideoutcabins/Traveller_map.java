@@ -254,7 +254,7 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                     cabanaobj.setAddress(dataSnapshot1.child("address").getValue().toString());
                     cabanaobj.setEmail(dataSnapshot1.child("email").getValue().toString());
                     cabanaobj.setName(dataSnapshot1.child("name").getValue().toString());
-                    cabanaobj.settP(dataSnapshot1.child("tp").getValue().toString());
+                    cabanaobj.setTp(dataSnapshot1.child("tp").getValue().toString());
                     cabanaobj.setPasword(dataSnapshot1.child("pasword").getValue().toString());
                     cabanaobj.setRoom_Double_Price(Double.valueOf(dataSnapshot1.child("room_Double_Price").getValue().toString()));
                     cabanaobj.setRoom_Single_Price(Double.valueOf(dataSnapshot1.child("room_Single_Price").getValue().toString()));
@@ -281,7 +281,7 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                         txtaddres.setText(cabin.getAddress());
                         txtdprice.setText(String.valueOf(cabin.getRoom_Double_Price()));
                         txtsprice.setText(String.valueOf(cabin.getRoom_Single_Price()));
-                        txtTp.setText(cabin.gettP());
+                        txtTp.setText(cabin.getTp());
 
                         return false;
                     }

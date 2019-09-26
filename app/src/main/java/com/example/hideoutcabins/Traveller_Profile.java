@@ -85,7 +85,7 @@ public class Traveller_Profile extends Fragment {
         UsersharedPreferences = this.getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
 
 
-        Tid = UsersharedPreferences.getString("LoginStatus",null);
+        Tid = UsersharedPreferences.getString("ID",null);
 
         final ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setCancelable(false);
