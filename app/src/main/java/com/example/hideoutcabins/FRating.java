@@ -1,6 +1,7 @@
 package com.example.hideoutcabins;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hideoutcabins.pojo.comment;
 import com.google.firebase.database.DataSnapshot;
@@ -50,6 +52,10 @@ public class FRating extends Fragment {
     private viewComentsTraveler.OnFragmentInteractionListener mListener;
     RatingBar ratingBar2;
     TextView textView;
+    int totalrating=0;
+
+    SharedPreferences UsersharedPreferences;
+    String Cid;
 
 
 
@@ -76,10 +82,17 @@ public class FRating extends Fragment {
                     }
                 }
 
-                int totalrating = totalrate/coun;
+                try {
+                    totalrating = totalrate/coun;
 
-                ratingBar2.setRating(totalrating);
-                textView.setText(String.valueOf(totalrating));
+                    ratingBar2.setRating(totalrating);
+                    textView.setText(String.valueOf(totalrating));
+                }
+                catch (ArithmeticException e){
+                    Toast.makeText(getContext(),"Travelers Didn't rated ",Toast.LENGTH_LONG).show();
+                }
+
+
 
 
             }
@@ -117,8 +130,9 @@ public class FRating extends Fragment {
 
         ratingBar2 = view.findViewById(R.id.ratingBar2);
         textView = view.findViewById(R.id.txtrating);
-
-        getrate("CB001");
+        UsersharedPreferences = getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        Cid = UsersharedPreferences.getString("ID",null);
+        getrate(Cid);
         return view;
     }
 

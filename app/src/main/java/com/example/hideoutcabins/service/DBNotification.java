@@ -52,7 +52,7 @@ public class DBNotification extends Service {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
-                if(dataSnapshot.hasChild("status") && dataSnapshot.child("status").getValue().equals("PendingP")){
+                if(dataSnapshot.hasChild("status") && dataSnapshot.child("status").getValue().equals("Pending")){
                     System.out.println("child added");
                     System.out.println(dataSnapshot);
 

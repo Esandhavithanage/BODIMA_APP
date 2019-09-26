@@ -1,6 +1,9 @@
 package com.example.hideoutcabins;
 
 import android.Manifest;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
@@ -24,6 +27,7 @@ import android.widget.Toast;
 
 import com.example.hideoutcabins.pojo.Cabin;
 import com.example.hideoutcabins.pojo.Request;
+import com.example.hideoutcabins.service.DBNotification;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -61,6 +65,9 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
     LinearLayout gallery ;
     LayoutInflater inflater;
 
+    SharedPreferences UsersharedPreferences;
+    String Tid,Tname,Tnumber;
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -80,7 +87,7 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
     private HashMap<String,Cabin> cabinlist = new HashMap<String, Cabin>();
 
     private boolean camrastatus = true;
-    private String[] beds = { "Bed type"};
+    String cid,cname;
 
     public Traveller_map() {
     }
@@ -98,6 +105,7 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
     }
 
@@ -118,6 +126,11 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
         txtTp = (TextView) view.findViewById(R.id.txttp);
         reg = (Button) view.findViewById(R.id.btnrequst);
 
+        UsersharedPreferences = getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        Tid = UsersharedPreferences.getString("ID",null);
+        Tname = UsersharedPreferences.getString("Name",null);
+        Tnumber = UsersharedPreferences.getString("TP",null);
+
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -127,18 +140,19 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                 String currentDateandTime = sdf.format(new Date());
 
                 Request request1 = new Request();
-                Toast.makeText(getContext(),"setOnClickListener",Toast.LENGTH_LONG).show();
-                request1.settId("T13344");
-                request1.settName("esandha");
-                request1.setcId("CB001");
-                request1.setcName("Kandy");
+               // Toast.makeText(getContext(),"setOnClickListener",Toast.LENGTH_LONG).show();
+                request1.settId(Tid);
+                request1.settName(Tname);
+                request1.setcId(cid);
+                request1.setcName(cname);
                 request1.setCheckout("Fulse");
-                request1.setStatus("PendingP");
-                request1.settNumber("1213854");
+                request1.setStatus("Pending");
+                request1.settNumber(Tnumber);
                 request1.setDate(currentDateandTime);
-                Toast.makeText(getContext(),request1.getcName(),Toast.LENGTH_LONG).show();
 
                 dbref.push().setValue(request1);
+                Toast.makeText(getContext(),"Sucssesfuly send request",Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -251,6 +265,9 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                         txtdprice.setText(String.valueOf(cabin.getRoom_Double_Price()));
                         txtsprice.setText(String.valueOf(cabin.getRoom_Single_Price()));
                         txtTp.setText(cabin.getTp());
+                        cid = marker.getSnippet();
+                        cname =cabin.getName();
+
 
                         return false;
                     }

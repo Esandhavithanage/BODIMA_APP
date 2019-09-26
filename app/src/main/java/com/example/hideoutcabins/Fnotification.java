@@ -1,6 +1,7 @@
 package com.example.hideoutcabins;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -43,6 +44,8 @@ public class Fnotification extends Fragment {
     private Request[] requeststoarray=null;
     private viewComentsTraveler.OnFragmentInteractionListener mListener;
     private ListView listView;
+    SharedPreferences UsersharedPreferences;
+    String Cid;
 
     public Fnotification() {
         // Required empty public constructor
@@ -115,7 +118,9 @@ public class Fnotification extends Fragment {
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_fnotification, container, false);
         listView = view.findViewById(R.id.requestlist);
-        getreqest("CB001");
+        UsersharedPreferences = getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        Cid = UsersharedPreferences.getString("ID",null);
+        getreqest(Cid);
         return view;
     }
 

@@ -1,5 +1,7 @@
 package com.example.hideoutcabins;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -47,6 +49,8 @@ public class viewComentsCabana extends Fragment {
     private comment[] comrentstoarray=null;
     private viewComentsTraveler.OnFragmentInteractionListener mListener;
     private  ListView listView;
+    SharedPreferences UsersharedPreferences;
+    String Cid;
 
 
     // TODO: Rename and change types of parameters
@@ -125,7 +129,10 @@ public class viewComentsCabana extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getcoments("CB001");
+        UsersharedPreferences = getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        Cid = UsersharedPreferences.getString("ID",null);
+
+        getcoments(Cid);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

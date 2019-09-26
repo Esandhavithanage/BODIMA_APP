@@ -3,6 +3,7 @@ package com.example.hideoutcabins;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -60,11 +61,12 @@ public class FHistoryCabana extends Fragment {
     private Button button;
     final Calendar myCalendar = Calendar.getInstance();
     private EditText searchtext;
+    SharedPreferences UsersharedPreferences;
+    String Cid;
 
 
 
     public FHistoryCabana() {
-        // Required empty public constructor
     }
 
 
@@ -162,7 +164,8 @@ public class FHistoryCabana extends Fragment {
         });
 
 
-
+        UsersharedPreferences = getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        Cid = UsersharedPreferences.getString("ID",null);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,7 +1,9 @@
 package com.example.hideoutcabins;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -59,6 +61,9 @@ public class FHistoryTraveler extends Fragment {
     final Calendar myCalendar = Calendar.getInstance();
     private  EditText searchtext;
     private  TextView todate,fromdate;
+
+    SharedPreferences UsersharedPreferences;
+    String Tid;
 
   //  private OnFragmentInteractionListener mListener;
 
@@ -160,12 +165,13 @@ public class FHistoryTraveler extends Fragment {
         });
 
 
-
+        UsersharedPreferences = getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        Tid = UsersharedPreferences.getString("ID",null);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getreqest("T13344");
+                getreqest(Tid);
             }
         });
 
@@ -250,6 +256,7 @@ public class FHistoryTraveler extends Fragment {
                 public void onClick(View view) {
                     Intent intent = new Intent(getActivity(),rateUs.class);
                     intent.putExtra("CID",txtid.getText().toString());
+                    intent.putExtra("Cname",txttravelername.getText().toString());
                     startActivity(intent);
                 }
             });

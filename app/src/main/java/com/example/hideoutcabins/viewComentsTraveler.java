@@ -1,5 +1,7 @@
 package com.example.hideoutcabins;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -56,6 +58,9 @@ public class viewComentsTraveler extends Fragment {
     private  ArrayList<String> commentsids = new ArrayList<String>();
     private OnFragmentInteractionListener mListener;
     private  ListView listView;
+
+    SharedPreferences UsersharedPreferences;
+    String Tid;
 
     public void getcoments(final String Tid) {
         Log.e("comment",Tid);
@@ -120,8 +125,9 @@ public class viewComentsTraveler extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e("dsfd","onCreate");
-        getcoments("T001");
+        UsersharedPreferences = getActivity().getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
+        Tid = UsersharedPreferences.getString("ID",null);
+        getcoments(Tid);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

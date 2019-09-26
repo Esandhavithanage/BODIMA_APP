@@ -170,7 +170,9 @@ EditText uname,pass;
                         editor.putString("LoginStatus","true");
                         System.out.println(editor.commit()+" sharedPreferences");
                         progressDialog.dismiss();
+                        startService(new Intent(Login.this,DBNotification.class));
                         startActivity(new Intent(Login.this,Traveller_nav.class));
+
                         break;
                     }
 
