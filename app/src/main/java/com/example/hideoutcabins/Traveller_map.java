@@ -251,15 +251,15 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
                     Cabin cabanaobj = new Cabin();
                     String Cid = dataSnapshot1.getKey();
-                    cabanaobj.setAddress(dataSnapshot1.child("Address").getValue().toString());
-                    cabanaobj.setEmail(dataSnapshot1.child("Email").getValue().toString());
-                    cabanaobj.setName(dataSnapshot1.child("Name").getValue().toString());
-                    cabanaobj.setTP(dataSnapshot1.child("TP").getValue().toString());
+                    cabanaobj.setAddress(dataSnapshot1.child("address").getValue().toString());
+                    cabanaobj.setEmail(dataSnapshot1.child("email").getValue().toString());
+                    cabanaobj.setName(dataSnapshot1.child("name").getValue().toString());
+                    cabanaobj.settP(dataSnapshot1.child("tp").getValue().toString());
                     cabanaobj.setPasword(dataSnapshot1.child("pasword").getValue().toString());
-                    cabanaobj.setRoom_Double_Price(Double.valueOf(dataSnapshot1.child("Room_Double_Price").getValue().toString()));
-                    cabanaobj.setRoom_Single_Price(Double.valueOf(dataSnapshot1.child("Room_Single_Price").getValue().toString()));
-                    cabanaobj.setLocation_lat(Double.valueOf(dataSnapshot1.child("Location_lat").getValue().toString()));
-                    cabanaobj.setLocation_lon(Double.valueOf(dataSnapshot1.child("Location_lon").getValue().toString()));
+                    cabanaobj.setRoom_Double_Price(Double.valueOf(dataSnapshot1.child("room_Double_Price").getValue().toString()));
+                    cabanaobj.setRoom_Single_Price(Double.valueOf(dataSnapshot1.child("room_Single_Price").getValue().toString()));
+                    cabanaobj.setLocation_lat(Double.valueOf(dataSnapshot1.child("location_lat").getValue().toString()));
+                    cabanaobj.setLocation_lon(Double.valueOf(dataSnapshot1.child("location_lon").getValue().toString()));
 
                     cabinlist.put(Cid,cabanaobj);
 
@@ -273,15 +273,15 @@ public class Traveller_map extends Fragment implements OnMapReadyCallback {
                 TgoogleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                     @Override
                     public boolean onMarkerClick(Marker marker) {
-                        Toast.makeText(getContext(),marker.getSnippet(),Toast.LENGTH_LONG).show();
-                        fillimage(marker.getSnippet());
+                     //   Toast.makeText(getContext(),marker.getSnippet(),Toast.LENGTH_LONG).show();
+                       // fillimage(marker.getSnippet());
                         Cabin cabin = cabinlist.get(marker.getSnippet());
 
                         txtnmae.setText(cabin.getName());
                         txtaddres.setText(cabin.getAddress());
                         txtdprice.setText(String.valueOf(cabin.getRoom_Double_Price()));
                         txtsprice.setText(String.valueOf(cabin.getRoom_Single_Price()));
-                        txtTp.setText(cabin.getTP());
+                        txtTp.setText(cabin.gettP());
 
                         return false;
                     }

@@ -87,5 +87,27 @@
     <string name="rateUs">rate us</string>
     <string name="search">search</string>
     <string name="comment">comment</string>
+    <string name="NIC">NIC</string>
+
+
+    <!---->
+
+    <string name="H2">Password</string>
+    <string name="Rh3">Email</string>
+    <string name="Rh4">NIC</string>
+    <string name="Rh5">Password</string>
+    <string name="Rh6">Confirm password</string>
+    <string name="Rh1">Last name</string>
+    <string name="Rh2">Email</string>
+    <string name="H1">First name</string>
+    <string name="sing_up">Sing up</string>
+    <string name="sing_in">Sing in</string>
+    <string name="Rh7">Your phone number</string>
+    <string name="W1">"   Hideout cabins"</string>
+    <string name="Tb1">Traveller Registration</string>
+    <string name="Tb2">Cabana Registration</string>
+    <string name="Ad">NIC</string>
+    <string name="Ed">Delete</string>
+    <string name="Up">Update</string>
 
 </resources>
